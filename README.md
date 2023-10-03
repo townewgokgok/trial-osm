@@ -19,4 +19,5 @@ webpack init
     ? Do you like to install prettier to format generated configuration? Yes
     ? Pick a package manager: yarn
 yarn add -D webpack-dev-server
+yarn add -D clean-webpack-plugin html-loader pug-html-loader
 ```
