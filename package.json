@@ -5,6 +5,7 @@
   "license": "MIT",
   "private": true,
   "devDependencies": {
+    "@types/leaflet": "^1.9.6",
     "@webpack-cli/generators": "^3.0.7",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.8.1",
@@ -29,5 +30,8 @@
     "build:prod": "webpack --mode=production --node-env=production",
     "start": "webpack-dev-server -w",
     "watch": "webpack --watch"
+  },
+  "dependencies": {
+    "leaflet": "^1.9.4"
   }
 }
