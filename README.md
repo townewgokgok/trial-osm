@@ -18,4 +18,5 @@ webpack init
     ? Do you want to extract CSS for every file? Yes
     ? Do you like to install prettier to format generated configuration? Yes
     ? Pick a package manager: yarn
+yarn add -D webpack-dev-server
 ```
