@@ -3,8 +3,17 @@ import * as ExtraMarkers from 'leaflet-extra-markers';
 require('leaflet-extra-markers');
 import * as Fullscreen from 'leaflet.fullscreen';
 require('leaflet.fullscreen/Control.FullScreen.js');
+require('leaflet-search');
 import * as geojson from "geojson";
 import './styles/index.styl';
+
+// declare namespace L {
+//     namespace Control {
+//         export class Search {
+//             constructor(options?: any);
+//         }
+//     }
+// }
 
 // 参考: https://mukai-lab.info/pages/tech/leaflet/leaflet/
 
@@ -44,7 +53,7 @@ const customIcon = L.ExtraMarkers.icon({
   svg: true,
 });
 
-const data: geojson.FeatureCollection = {
+const geoData: geojson.FeatureCollection = {
   type: "FeatureCollection",
   features: [
     {
@@ -62,9 +71,9 @@ const data: geojson.FeatureCollection = {
 };
 
 // GeoJSONの読込
-L.geoJSON(data, {
-  pointToLayer: function(feature, latlng) {
-    return L.marker(latlng, {icon: customIcon});
+L.geoJSON(geoData, {
+  pointToLayer: function (feature, latlng) {
+    return L.marker(latlng, { icon: customIcon });
   },
   onEachFeature: (feature, layer) => {
     layer.bindPopup("<div style='width:150px'>" + feature.properties.name + "</div>");
@@ -72,16 +81,40 @@ L.geoJSON(data, {
 }).addTo(mymap);
 
 // イベント処理
-var popup = L.popup();
+const popup = L.popup();
 mymap.on("click", e => {
   // popup.setLatLng(e.latlng).setContent(
   //   "<p>緯度:" + e.latlng.lat + " 経度:" + e.latlng.lng + "</p>"
   // ).openOn(mymap);
 });
 
-L.marker([35.6927524, 139.6950475], {icon:customIcon}).addTo(mymap).on('click', e => {
+L.marker([35.6927524, 139.6950475], { icon: customIcon }).addTo(mymap).on('click', e => {
   popup
     .setLatLng(e.latlng)
     .setContent("テキサス 野村ビル店")
     .openOn(mymap);
 });
+
+const searchLayer = new L.LayerGroup();
+mymap.addLayer(searchLayer);
+
+const data = [
+  {loc:[35.7101, 139.8107], title:"title 1", description:"説明１"},
+  {loc:[35.7121, 139.8207], title:"title 2", description:"説明２"},
+  {loc:[35.7091, 139.8207], title:"title 3", description:"説明３"},
+];
+for (let d of data) {
+  let marker = new L.Marker(new L.LatLng(d.loc[0], d.loc[1]), {title: d.title, icon:customIcon} );
+  marker.bindPopup('title: '+ d.title);
+  searchLayer.addLayer(marker);
+}
+
+// @ts-ignore
+const controlSearch = new L.Control.Search({
+  position: 'topright',
+  layer: searchLayer,
+  initial: false,
+  zoom: 15,
+  marker: false
+});
+mymap.addControl(controlSearch);
