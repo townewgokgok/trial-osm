@@ -6,6 +6,7 @@
   "private": true,
   "devDependencies": {
     "@types/leaflet": "^1.9.6",
+    "@types/leaflet.fullscreen": "^1.6.2",
     "@webpack-cli/generators": "^3.0.7",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.8.1",
@@ -34,6 +35,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.4.2",
     "leaflet": "^1.9.4",
-    "leaflet-extra-markers": "^1.2.2"
+    "leaflet-extra-markers": "^1.2.2",
+    "leaflet.fullscreen": "^2.4.0"
   }
 }

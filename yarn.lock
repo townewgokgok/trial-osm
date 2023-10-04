@@ -606,7 +606,14 @@
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.13.tgz#02c24f4363176d2d18fc8b70b9f3c54aba178a85"
   integrity sha512-RbSSoHliUbnXj3ny0CNFOoxrIDV6SUGyStHsvDqosw6CkdPV8TtWGlfecuK4ToyMEAql6pzNxgCFKanovUzlgQ==
 
-"@types/leaflet@^1.9.6":
+"@types/leaflet.fullscreen@^1.6.2":
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/@types/leaflet.fullscreen/-/leaflet.fullscreen-1.6.2.tgz#8eca8c77a147d683eca2e22c5688004bed2e484e"
+  integrity sha512-PdxXN+Cugi4JZoDSJHfRw17QksxFNKoe+EYBVaBmbO/f44BsQdZUCgddCT2ORKaqOmWd0B+LxJ4eNhwXmKATNA==
+  dependencies:
+    "@types/leaflet" "*"
+
+"@types/leaflet@*", "@types/leaflet@^1.9.6":
   version "1.9.6"
   resolved "https://registry.yarnpkg.com/@types/leaflet/-/leaflet-1.9.6.tgz#d58ecdbe9f1f383cb0a7133a020cd05bfe00a762"
   integrity sha512-HakGTK5LBBWegNWsAmTlG55zN1zszYec7aG47/z6SzT90bW2vqjmbqk3YKAbrtveO+G7fSTKTYqVbIwAFnTrbg==
@@ -3122,6 +3129,11 @@ leaflet-extra-markers@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/leaflet-extra-markers/-/leaflet-extra-markers-1.2.2.tgz#e0887ef282fcab53aaf7a5bb6d617ded54aee1d9"
   integrity sha512-LQUicXhyOwq0wOFtEftJg9IzAGcQI+6mHgh3wsVntrid149BTqsEgh1UcxPPtzcL7xt8jXY0rssfz7DUZuQudg==
+
+leaflet.fullscreen@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/leaflet.fullscreen/-/leaflet.fullscreen-2.4.0.tgz#8503c69b6f6afe6f54594c9cdd5e4f131cfa97b4"
+  integrity sha512-41O0ikdUR0bVC0QfoFN3W5S+9yoeHqL74i0QQafa/W79+ij/G7IRZwpfwPuxoNwpydoUJ/9Mq/6Hp7WZOnkWzQ==
 
 leaflet@^1.9.4:
   version "1.9.4"

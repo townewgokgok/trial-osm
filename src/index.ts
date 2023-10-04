@@ -1,18 +1,26 @@
 import L from "leaflet";
 import * as ExtraMarkers from 'leaflet-extra-markers';
 require('leaflet-extra-markers');
+import * as Fullscreen from 'leaflet.fullscreen';
+require('leaflet.fullscreen/Control.FullScreen.js');
 import * as geojson from "geojson";
 import './styles/index.styl';
 
 // 参考: https://mukai-lab.info/pages/tech/leaflet/leaflet/
 
 // 緯度・経度と倍率の指定
-const mymap = L.map("mymap").setView([35.69434, 139.69571], 19);
+const mymap = new L.Map('mymap', {
+  fullscreenControl: true,
+  fullscreenControlOptions: {
+    position: 'topleft'
+  },
+}).setView([35.69434, 139.69571], 19);
 
 // 地図タイルとクレジット表示
 L.tileLayer(
   "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
   {
+    maxZoom: 18,
     attribution: "&copy; <a href='http://osm.org/copyright'>OpenStreetMap</a> contributors"
   }
 ).addTo(mymap);
