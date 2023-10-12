@@ -13,7 +13,7 @@ const config = {
   entry: './src/index.ts',
   output: {
     path: `${__dirname}/dist`,
-    filename: './js/bundle.js'
+    filename: './js/[name]-[hash].bundle.js'
   },
   plugins: [
     new MiniCssExtractPlugin(),
