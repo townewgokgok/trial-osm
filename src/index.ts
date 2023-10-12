@@ -23,7 +23,7 @@ const mymap = new L.Map('mymap', {
   fullscreenControlOptions: {
     position: 'topleft'
   },
-}).setView([35.69434, 139.69571], 19);
+}).setView([35.69434, 139.69571], 5);
 
 // 地図タイルとクレジット表示
 L.tileLayer(
@@ -45,13 +45,15 @@ const customIcon = L.ExtraMarkers.icon({
   shape: 'circle',
   markerColor: 'cyan',
   prefix: 'fas',
-  icon: 'fa-dog',
+  icon: 'fa-building',
   iconColor: '#fff',
   iconRotate: 0,
   extraClasses: '',
   number: '',
   svg: true,
 });
+
+/*
 
 const geoData: geojson.FeatureCollection = {
   type: "FeatureCollection",
@@ -95,13 +97,16 @@ L.marker([35.6927524, 139.6950475], { icon: customIcon }).addTo(mymap).on('click
     .openOn(mymap);
 });
 
+*/
+
 const searchLayer = new L.LayerGroup();
 mymap.addLayer(searchLayer);
 
 const data = [
-  {loc:[35.7101, 139.8107], title:"title 1", description:"説明１"},
-  {loc:[35.7121, 139.8207], title:"title 2", description:"説明２"},
-  {loc:[35.7091, 139.8207], title:"title 3", description:"説明３"},
+  {loc:[35.694317, 139.695866], title:"さくらインターネット東京支社", description:"〒160-0023 東京都新宿区西新宿７丁目２０−１ 住友不動産西新宿ビル 32F"},
+  {loc:[34.7005117, 135.4982745], title:"さくらインターネット本社", description:"〒530-0001 大阪府大阪市北区梅田１丁目１２−１２ 東京建物梅田ビル 11階"},
+  {loc:[33.5885441, 130.3894127], title:"さくらインターネット福岡オフィス", description:"〒810-0042 福岡県福岡市中央区赤坂１丁目１２−１５ 読売福岡ビル 7F"},
+  {loc:[26.2170071, 127.6768332], title:"SAKURA innobase Okinawa", description:"〒900-0032 沖縄県那覇市松山１丁目２ 長谷工那覇ビル 1階"},
 ];
 for (let d of data) {
   let marker = new L.Marker(new L.LatLng(d.loc[0], d.loc[1]), {title: d.title, icon:customIcon} );
@@ -115,6 +120,7 @@ const controlSearch = new L.Control.Search({
   layer: searchLayer,
   initial: false,
   zoom: 15,
-  marker: false
+  marker: false,
+  autoResize: true,
 });
 mymap.addControl(controlSearch);
